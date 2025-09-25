@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startBtn.addEventListener('click', () => {
     if (startBtn.disabled) return;
     startBtn.disabled = true;
-    drawSound.play();
+    drawSound.play(); // 開始播放draw.mp3（因loop屬性會持續播放）
     let currentIndex = 0;
     let rounds = Math.floor(Math.random() * 3) + 3;
     let availablePrizes = prizes.filter(p => p.id !== lastPrizeId);
@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (step >= totalSteps) {
         clearInterval(interval);
-        drawSound.pause();
-        drawSound.currentTime = 0;
-        resultSound.play();
+        drawSound.pause(); // 停止draw.mp3
+        drawSound.currentTime = 0; // 重置到開頭
+        resultSound.play(); // 播放result.mp3
         resultImg.src = finalPrize.image;
         resultText.textContent = `恭喜獲得：${finalPrize.name}`;
         modal.style.display = 'flex';

@@ -1,12 +1,12 @@
-const CACHE_NAME = 'lottery-cache-v3';
+const CACHE_NAME = 'lottery-cache-v4'; // 更新快取名稱
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
   '/script.js',
   '/manifest.json',
-  '/fonts/MantouSans-Regular.ttf', /* 添加字型 */
-  '/images/grid-bg.png', /* 確保背景圖快取 */
+  '/fonts/MantouSans-Regular.ttf',
+  '/images/grid-bg.png',
   '/images/start-btn.png',
   '/images/fullscreen-btn.png',
   '/images/modal-bg.png',

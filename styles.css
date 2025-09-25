@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'MantouSans', Arial, sans-serif; /* 應用自定義字型 */
+  font-family: 'MantouSans', Arial, sans-serif; /* 全局應用字型 */
   margin: 0;
   background-color: #f0f0f0;
   display: flex;
@@ -19,25 +19,25 @@ body {
 .container {
   text-align: center;
   padding: 20px;
-  max-width: 1024px; /* iPad寬度適配 */
+  max-width: 1024px;
 }
 
 .grid-background {
-  background-image: url('images/grid-bg.png'); /* 九宮格背景圖 */
-  background-size: contain; /* 確保圖片適配容器 */
+  background-image: url('images/grid-bg.png');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #ffffff; /* 備用背景色，防止圖片載入失敗 */
+  background-color: #ffffff; /* 備用背景色 */
   padding: 20px;
   border-radius: 10px;
-  min-height: 650px; /* 確保背景圖尺寸正確 */
+  min-height: 650px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  max-width: 600px; /* 九宮格尺寸，適配iPad */
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -114,17 +114,18 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   color: #fff;
+  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型到關閉按鈕 */
 }
 
 .modal-content h2 {
-  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型 */
+  font-family: 'MantouSans', Arial, sans-serif;
   font-size: 1.8rem;
   color: #333;
   margin: 10px 0;
 }
 
 .modal-content p {
-  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型 */
+  font-family: 'MantouSans', Arial, sans-serif;
   font-size: 1.2rem;
   color: #333;
 }
@@ -148,7 +149,7 @@ body {
   }
 
   .grid-background {
-    min-height: 550px; /* 調整背景圖高度 */
+    min-height: 550px;
   }
 
   #start-btn, #fullscreen-btn, #back-btn {
