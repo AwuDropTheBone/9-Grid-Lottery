@@ -1,0 +1,127 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 1024px; /* 適配iPad寬度 */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 600px; /* 九宮格總寬度，適配iPad */
+  margin: 20px auto;
+}
+
+.grid-item {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.grid-item img {
+  width: 100px; /* 獎品圖片尺寸 */
+  height: 100px;
+  object-fit: cover;
+}
+
+.grid-item p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.grid-item.active {
+  background-color: #ffd700;
+  transform: scale(1.1); /* 高亮動畫 */
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 80%;
+}
+
+.modal-content img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 響應式設計，適配iPad */
+@media (max-width: 1024px) {
+  .grid {
+    max-width: 90%;
+  }
+
+  .grid-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
