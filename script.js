@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawSound = document.getElementById('draw-sound');
   const resultSound = document.getElementById('result-sound');
 
-  // 獎品數據
   const prizes = [
     { id: 0, name: '獎品1', image: 'images/prize1.png' },
     { id: 1, name: '獎品2', image: 'images/prize2.png' },
@@ -23,18 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 8, name: '獎品9', image: 'images/prize9.png' },
   ];
 
-  // 抽獎路徑
   const drawPath = [0, 1, 2, 5, 8, 7, 6, 3, 0];
-  let lastPrizeId = null; // 記錄上次中獎ID
+  let lastPrizeId = null;
 
-  // 抽獎邏輯
   startBtn.addEventListener('click', () => {
     if (startBtn.disabled) return;
     startBtn.disabled = true;
-    drawSound.play(); // 播放抽獎音效
+    drawSound.play();
     let currentIndex = 0;
-    let rounds = Math.floor(Math.random() * 3) + 3; // 隨機3-5圈
-    let availablePrizes = prizes.filter(p => p.id !== lastPrizeId); // 排除上次結果
+    let rounds = Math.floor(Math.random() * 3) + 3;
+    let availablePrizes = prizes.filter(p => p.id !== lastPrizeId);
     let finalPrize = availablePrizes[Math.floor(Math.random() * availablePrizes.length)];
     let totalSteps = rounds * drawPath.length + drawPath.indexOf(finalPrize.id);
     let step = 0;
@@ -51,29 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(interval);
         drawSound.pause();
         drawSound.currentTime = 0;
-        resultSound.play(); // 播放結果音效
+        resultSound.play();
         resultImg.src = finalPrize.image;
         resultText.textContent = `恭喜獲得：${finalPrize.name}`;
         modal.style.display = 'flex';
-        lastPrizeId = finalPrize.id; // 更新上次中獎ID
+        lastPrizeId = finalPrize.id;
         startBtn.disabled = false;
       }
     }, 100);
   });
 
-  // 返回主畫面
   backBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     gridItems.forEach(item => item.classList.remove('active'));
   });
 
-  // 關閉彈窗
   closeModal.addEventListener('click', () => {
     modal.style.display = 'none';
     gridItems.forEach(item => item.classList.remove('active'));
   });
 
-  // 全螢幕切換
   fullscreenBtn.addEventListener('click', () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(err => {

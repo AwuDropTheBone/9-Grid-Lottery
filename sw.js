@@ -1,13 +1,12 @@
-const CACHE_NAME = 'lottery-cache-v2';
+const CACHE_NAME = 'lottery-cache-v3';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
   '/script.js',
   '/manifest.json',
-  '/images/icon.png',
-  '/images/icon-512.png',
-  '/images/grid-bg.png',
+  '/fonts/MantouSans-Regular.ttf', /* 添加字型 */
+  '/images/grid-bg.png', /* 確保背景圖快取 */
   '/images/start-btn.png',
   '/images/fullscreen-btn.png',
   '/images/modal-bg.png',
@@ -21,6 +20,8 @@ const urlsToCache = [
   '/images/prize7.png',
   '/images/prize8.png',
   '/images/prize9.png',
+  '/images/icon.png',
+  '/images/icon-512.png',
   '/sounds/draw.mp3',
   '/sounds/result.mp3',
 ];

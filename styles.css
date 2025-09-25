@@ -1,5 +1,13 @@
+/* 載入自定義字型 */
+@font-face {
+  font-family: 'MantouSans';
+  src: url('fonts/MantouSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'MantouSans', Arial, sans-serif; /* 應用自定義字型 */
   margin: 0;
   background-color: #f0f0f0;
   display: flex;
@@ -16,9 +24,13 @@ body {
 
 .grid-background {
   background-image: url('images/grid-bg.png'); /* 九宮格背景圖 */
-  background-size: cover;
+  background-size: contain; /* 確保圖片適配容器 */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff; /* 備用背景色，防止圖片載入失敗 */
   padding: 20px;
   border-radius: 10px;
+  min-height: 650px; /* 確保背景圖尺寸正確 */
 }
 
 .grid {
@@ -30,7 +42,7 @@ body {
 }
 
 .grid-item {
-  background: transparent; /* 格子背景由grid-bg.png控制 */
+  background: transparent;
   border: 2px solid transparent;
   border-radius: 10px;
   padding: 10px;
@@ -38,13 +50,13 @@ body {
 }
 
 .grid-item img {
-  width: 100px; /* 獎品圖片尺寸 */
+  width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
 .grid-item.active {
-  box-shadow: 0 0 20px #ffd700; /* 閃爍效果 */
+  box-shadow: 0 0 20px #ffd700;
   transform: scale(1.1);
 }
 
@@ -56,7 +68,7 @@ body {
 }
 
 #start-btn, #fullscreen-btn, #back-btn {
-  width: 120px; /* 按鈕圖片尺寸 */
+  width: 120px;
   height: 50px;
   cursor: pointer;
 }
@@ -105,9 +117,16 @@ body {
 }
 
 .modal-content h2 {
+  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型 */
   font-size: 1.8rem;
   color: #333;
   margin: 10px 0;
+}
+
+.modal-content p {
+  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型 */
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .modal-content img#result-img {
@@ -115,11 +134,6 @@ body {
   height: 150px;
   object-fit: cover;
   margin: 10px 0;
-}
-
-.modal-content p {
-  font-size: 1.2rem;
-  color: #333;
 }
 
 /* 響應式設計，適配iPad */
@@ -131,6 +145,10 @@ body {
   .grid-item img {
     width: 80px;
     height: 80px;
+  }
+
+  .grid-background {
+    min-height: 550px; /* 調整背景圖高度 */
   }
 
   #start-btn, #fullscreen-btn, #back-btn {
