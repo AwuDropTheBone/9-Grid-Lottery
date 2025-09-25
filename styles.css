@@ -27,7 +27,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #ffffff; /* 備用背景色 */
+  background-color: #c8cffa; /* 備用背景色 */
   padding: 20px;
   border-radius: 10px;
   min-height: 650px;
@@ -160,4 +160,5 @@ body {
   .modal-content {
     width: 80%;
   }
+
 }
