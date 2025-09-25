@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'MantouSans', Arial, sans-serif; /* 全局應用字型 */
+  font-family: 'MantouSans', Arial, sans-serif;
   margin: 0;
   background-color: #f0f0f0;
   display: flex;
@@ -27,7 +27,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #c8cffa; /* 備用背景色 */
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   min-height: 650px;
@@ -114,20 +114,20 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   color: #fff;
-  font-family: 'MantouSans', Arial, sans-serif; /* 應用字型到關閉按鈕 */
+  font-family: 'MantouSans', Arial, sans-serif;
 }
 
 .modal-content h2 {
   font-family: 'MantouSans', Arial, sans-serif;
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 2.5rem; /* 放大標題文字 */
+  color: #800400; /* 改為深紅色 */
   margin: 10px 0;
 }
 
 .modal-content p {
   font-family: 'MantouSans', Arial, sans-serif;
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.6rem; /* 放大結果文字 */
+  color: #800400; /* 改為深紅色 */
 }
 
 .modal-content img#result-img {
@@ -161,4 +161,11 @@ body {
     width: 80%;
   }
 
+  .modal-content h2 {
+    font-size: 2rem; /* iPad上稍減小標題文字 */
+  }
+
+  .modal-content p {
+    font-size: 1.4rem; /* iPad上稍減小結果文字 */
+  }
 }
