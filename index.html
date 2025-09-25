@@ -10,28 +10,36 @@
 </head>
 <body>
   <div class="container">
-    <h1>九宮格抽獎</h1>
-    <div class="grid">
-      <div class="grid-item" data-id="0"><img src="images/prize1.png" alt="獎品1"><p>獎品1</p></div>
-      <div class="grid-item" data-id="1"><img src="images/prize2.png" alt="獎品2"><p>獎品2</p></div>
-      <div class="grid-item" data-id="2"><img src="images/prize3.png" alt="獎品3"><p>獎品3</p></div>
-      <div class="grid-item" data-id="3"><img src="images/prize4.png" alt="獎品4"><p>獎品4</p></div>
-      <div class="grid-item" data-id="4"><img src="images/prize5.png" alt="獎品5"><p>獎品5</p></div>
-      <div class="grid-item" data-id="5"><img src="images/prize6.png" alt="獎品6"><p>獎品6</p></div>
-      <div class="grid-item" data-id="6"><img src="images/prize7.png" alt="獎品7"><p>獎品7</p></div>
-      <div class="grid-item" data-id="7"><img src="images/prize8.png" alt="獎品8"><p>獎品8</p></div>
-      <div class="grid-item" data-id="8"><img src="images/prize9.png" alt="獎品9"><p>獎品9</p></div>
+    <div class="grid-background">
+      <div class="grid">
+        <div class="grid-item" data-id="0"><img src="images/prize1.png" alt="獎品1"></div>
+        <div class="grid-item" data-id="1"><img src="images/prize2.png" alt="獎品2"></div>
+        <div class="grid-item" data-id="2"><img src="images/prize3.png" alt="獎品3"></div>
+        <div class="grid-item" data-id="3"><img src="images/prize4.png" alt="獎品4"></div>
+        <div class="grid-item" data-id="4"><img src="images/prize5.png" alt="獎品5"></div>
+        <div class="grid-item" data-id="5"><img src="images/prize6.png" alt="獎品6"></div>
+        <div class="grid-item" data-id="6"><img src="images/prize7.png" alt="獎品7"></div>
+        <div class="grid-item" data-id="7"><img src="images/prize8.png" alt="獎品8"></div>
+        <div class="grid-item" data-id="8"><img src="images/prize9.png" alt="獎品9"></div>
+      </div>
     </div>
-    <button id="start-btn">開始抽獎</button>
+    <div class="button-container">
+      <img src="images/start-btn.png" id="start-btn" alt="開始抽獎">
+      <img src="images/fullscreen-btn.png" id="fullscreen-btn" alt="全螢幕">
+    </div>
   </div>
   <div id="result-modal" class="modal">
     <div class="modal-content">
+      <img src="images/modal-bg.png" class="modal-bg" alt="彈窗背景">
       <span class="close">&times;</span>
       <h2>恭喜中獎！</h2>
       <img id="result-img" src="" alt="獎品圖片">
       <p id="result-text"></p>
+      <img src="images/back-btn.png" id="back-btn" alt="返回主畫面">
     </div>
   </div>
+  <audio id="draw-sound" src="sounds/draw.mp3"></audio>
+  <audio id="result-sound" src="sounds/result.mp3"></audio>
   <script src="script.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

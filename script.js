@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.getElementById('start-btn');
-  const gridItems = document.querySelectorAll('.grid-item');
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
   const modal = document.getElementById('result-modal');
   const resultImg = document.getElementById('result-img');
   const resultText = document.getElementById('result-text');
+  const backBtn = document.getElementById('back-btn');
   const closeModal = document.querySelector('.close');
+  const gridItems = document.querySelectorAll('.grid-item');
+  const drawSound = document.getElementById('draw-sound');
+  const resultSound = document.getElementById('result-sound');
 
   // 獎品數據
   const prizes = [
@@ -19,20 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 8, name: '獎品9', image: 'images/prize9.png' },
   ];
 
-  // 抽獎路徑（模擬順時針移動）
-  const drawPath = [0, 1, 2, 5, 8, 7, 6, 3, 0]; // 九宮格路徑：1->2->3->6->9->8->7->4->1
+  // 抽獎路徑
+  const drawPath = [0, 1, 2, 5, 8, 7, 6, 3, 0];
+  let lastPrizeId = null; // 記錄上次中獎ID
 
+  // 抽獎邏輯
   startBtn.addEventListener('click', () => {
+    if (startBtn.disabled) return;
     startBtn.disabled = true;
+    drawSound.play(); // 播放抽獎音效
     let currentIndex = 0;
     let rounds = Math.floor(Math.random() * 3) + 3; // 隨機3-5圈
-    let totalSteps = rounds * drawPath.length + Math.floor(Math.random() * drawPath.length); // 總步數
+    let availablePrizes = prizes.filter(p => p.id !== lastPrizeId); // 排除上次結果
+    let finalPrize = availablePrizes[Math.floor(Math.random() * availablePrizes.length)];
+    let totalSteps = rounds * drawPath.length + drawPath.indexOf(finalPrize.id);
     let step = 0;
 
     const interval = setInterval(() => {
-      // 移除上一個高亮
       gridItems.forEach(item => item.classList.remove('active'));
-      // 高亮當前格子
       const currentGridIndex = drawPath[currentIndex];
       gridItems[currentGridIndex].classList.add('active');
 
@@ -41,20 +49,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (step >= totalSteps) {
         clearInterval(interval);
-        // 顯示中獎結果
-        const finalIndex = drawPath[currentIndex === 0 ? drawPath.length - 1 : currentIndex - 1];
-        const prize = prizes.find(p => p.id === finalIndex);
-        resultImg.src = prize.image;
-        resultText.textContent = `恭喜獲得：${prize.name}`;
+        drawSound.pause();
+        drawSound.currentTime = 0;
+        resultSound.play(); // 播放結果音效
+        resultImg.src = finalPrize.image;
+        resultText.textContent = `恭喜獲得：${finalPrize.name}`;
         modal.style.display = 'flex';
+        lastPrizeId = finalPrize.id; // 更新上次中獎ID
         startBtn.disabled = false;
       }
-    }, 100); // 每100ms移動一次
+    }, 100);
+  });
+
+  // 返回主畫面
+  backBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    gridItems.forEach(item => item.classList.remove('active'));
   });
 
   // 關閉彈窗
   closeModal.addEventListener('click', () => {
     modal.style.display = 'none';
     gridItems.forEach(item => item.classList.remove('active'));
+  });
+
+  // 全螢幕切換
+  fullscreenBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.error('全螢幕模式失敗:', err);
+      });
+    } else {
+      document.exitFullscreen();
+    }
   });
 });

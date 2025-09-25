@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lottery-cache-v1';
+const CACHE_NAME = 'lottery-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -6,6 +6,12 @@ const urlsToCache = [
   '/script.js',
   '/manifest.json',
   '/images/icon.png',
+  '/images/icon-512.png',
+  '/images/grid-bg.png',
+  '/images/start-btn.png',
+  '/images/fullscreen-btn.png',
+  '/images/modal-bg.png',
+  '/images/back-btn.png',
   '/images/prize1.png',
   '/images/prize2.png',
   '/images/prize3.png',
@@ -15,6 +21,8 @@ const urlsToCache = [
   '/images/prize7.png',
   '/images/prize8.png',
   '/images/prize9.png',
+  '/sounds/draw.mp3',
+  '/sounds/result.mp3',
 ];
 
 self.addEventListener('install', event => {
