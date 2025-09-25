@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lottery-cache-v8'; // 更新快取名稱
+const CACHE_NAME = 'lottery-cache-v9'; // 更新快取名稱
 const urlsToCache = [
   '/',
   '/index.html',
