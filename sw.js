@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lottery-cache-v4'; // 更新快取名稱
+const CACHE_NAME = 'lottery-cache-v5'; // 更新快取名稱
 const urlsToCache = [
   '/',
   '/index.html',
@@ -6,6 +6,7 @@ const urlsToCache = [
   '/script.js',
   '/manifest.json',
   '/fonts/MantouSans-Regular.ttf',
+  '/images/title-bg.png', /* 添加主題圖片 */
   '/images/grid-bg.png',
   '/images/start-btn.png',
   '/images/fullscreen-btn.png',
