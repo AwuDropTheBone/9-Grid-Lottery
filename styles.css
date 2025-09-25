@@ -9,27 +9,28 @@
 body {
   font-family: 'MantouSans', Arial, sans-serif;
   margin: 0;
+  padding: 0; /* 移除可能影響居中的padding */
   background-image: url('images/body-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #f0f0f0; /* 備用背景色 */
   overflow: hidden;
-  min-height: 1536px; /* 適配 iPad 高度 */
+  min-height: 1536px; /* 適配iPad高度 */
 }
 
 .container {
   position: absolute;
   top: 0; /* 中央最上方對齊 */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* 水平居中 */
   width: 600px;
-  height: 820px; /* 增加高度，包含標題、九宮格、按鈕、間距 */
+  height: 820px; /* 包含標題、九宮格、按鈕、間距 */
   background-image: url('images/container-bg.png');
-  background-size: 600px 820px; /* 匹配容器尺寸 */
+  background-size: 600px 820px;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: transparent; /* 移除白色背景 */
+  background-color: transparent;
   text-align: center;
 }
 
@@ -39,7 +40,7 @@ body {
   width: 300px;
   height: 100px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; /* 確保標題居中 */
 }
 
 .title-img {
@@ -69,11 +70,12 @@ body {
   background-size: 600px 600px;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: transparent; /* 移除白色背景 */
+  background-color: transparent;
   width: 600px;
   height: 600px;
   border-radius: 10px;
   overflow: hidden;
+  margin: 0 auto; /* 確保九宮格居中 */
 }
 
 .grid {
@@ -82,6 +84,7 @@ body {
   gap: 10px;
   width: 600px;
   height: 600px;
+  margin: 0; /* 移除可能導致偏移的margin */
 }
 
 .grid-item {
@@ -111,14 +114,14 @@ body {
   gap: 20px;
   margin-top: 20px;
   width: 600px;
-  z-index: 10; /* 確保按鈕在背景圖上方 */
+  z-index: 10;
 }
 
 #start-btn, #fullscreen-btn {
   width: 120px;
   height: 50px;
   object-fit: contain;
-  z-index: 10; /* 確保按鈕不被遮擋 */
+  z-index: 10;
 }
 
 #start-btn:disabled {
@@ -134,7 +137,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100; /* 確保彈窗在最上層 */
+  z-index: 100;
 }
 
 .modal-content {
