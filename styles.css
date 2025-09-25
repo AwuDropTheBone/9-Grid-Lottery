@@ -9,21 +9,22 @@
 body {
   font-family: 'MantouSans', Arial, sans-serif;
   margin: 0;
-  padding: 0; /* 移除可能影響居中的padding */
+  padding: 0;
   background-image: url('images/body-bg.png');
-  background-size: cover;
+  background-size: auto 100%; /* 高度適應螢幕，保持長寬比 */
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; /* 中央對齊 */
   background-color: #f0f0f0; /* 備用背景色 */
   overflow: hidden;
-  min-height: 1536px; /* 適配iPad高度 */
+  min-height: 100vh; /* 適應不同設備高度 */
+  box-sizing: border-box; /* 確保無意外邊距 */
 }
 
 .container {
   position: absolute;
   top: 0; /* 中央最上方對齊 */
   left: 50%;
-  transform: translateX(-50%); /* 水平居中 */
+  transform: translateX(-50%);
   width: 600px;
   height: 820px; /* 包含標題、九宮格、按鈕、間距 */
   background-image: url('images/container-bg.png');
@@ -32,6 +33,7 @@ body {
   background-position: center;
   background-color: transparent;
   text-align: center;
+  box-sizing: border-box; /* 防止邊距影響居中 */
 }
 
 .title-container {
@@ -40,7 +42,7 @@ body {
   width: 300px;
   height: 100px;
   margin-left: auto;
-  margin-right: auto; /* 確保標題居中 */
+  margin-right: auto;
 }
 
 .title-img {
@@ -84,7 +86,7 @@ body {
   gap: 10px;
   width: 600px;
   height: 600px;
-  margin: 0; /* 移除可能導致偏移的margin */
+  margin: 0;
 }
 
 .grid-item {
